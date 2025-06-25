@@ -38,7 +38,7 @@ app.get(["/blocks", "/blocks/:limit"], async (req, res) => {
       // fetch block info
       const blockRes = await axios.post(ENV.RPC_ENDPOINT, {
         jsonrpc: "2.0",
-        id: currentHeight,
+        id: height,
         method: "block",
         params: { height: `${height}` },
       });
