@@ -1,7 +1,8 @@
-export const produceMessage = async (producer, topic, message) => {
+export const produceMessage = async (producer, topic, value, key) => {
+  key = !key ? `${topic}-1` : key;
   await producer.send({
     topic,
-    messages: [message],
+    messages: [{ key: `${topic}`, value }],
   });
-  console.log(`${topic} : Messages Produced`);
+  console.log(`${topic} : Message Produced`);
 };
