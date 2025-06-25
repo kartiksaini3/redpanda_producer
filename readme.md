@@ -1,6 +1,6 @@
-# Commands to run
+# Commands to run locally
 
-npm i
-sudo docker compose up --build
+- npm i
+- sudo docker compose up --build
 
-npm start
+- npm run dev / npm run dev-clear

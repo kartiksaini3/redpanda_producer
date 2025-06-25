@@ -5,12 +5,18 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "dev-clear": "nodemon --exec \"clear && node\" index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.10.0",
+    "express": "^5.1.0",
     "kafkajs": "^2.2.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }
