@@ -45,10 +45,11 @@ app.get(["/blocks", "/blocks/:limit"], async (req, res) => {
         method: "block",
         params: { height: `${height}` },
       });
+
       await produceMessage(
         producer,
         "block_info",
-        JSON.stringify(blockRes?.data?.result?.block)
+        JSON.stringify(blockRes?.data)
       );
       await produceMessage(producer, "current_block_number", `${height}`);
     }
