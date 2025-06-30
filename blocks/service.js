@@ -21,13 +21,15 @@ export const getBlocks = async (limit, res, producer, rpcUrl) => {
 
     for (let height = startHeight; height <= latestHeight; height++) {
       // fetch block info
+
       const blockRes = await axios.post(rpcUrl, {
         jsonrpc: "2.0",
         id: height,
         method: "block",
         params: { height: `${height}` },
+        // params: { height: `1449399` },
       });
-
+      if (blockRes?.data?.error) throw new Error();
       await produceMessage(
         producer,
         "block_info",
